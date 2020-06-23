@@ -139,6 +139,12 @@ func (stream *Stream) connect() (r io.ReadCloser, err error) {
 }
 
 func (stream *Stream) stream(r io.ReadCloser) {
+	defer func() {
+		if r := recover(); r != nil {
+			log.Print("recovered from panic on stream() ", r)
+		}
+	}()
+
 	defer r.Close()
 
 	// receives events until an error is encountered
