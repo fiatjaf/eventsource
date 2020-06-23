@@ -3,9 +3,10 @@ package eventsource_test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/donovanhide/eventsource"
 	"net"
 	"net/http"
+
+	"github.com/fiatjaf/eventsource"
 )
 
 type NewsArticle struct {
